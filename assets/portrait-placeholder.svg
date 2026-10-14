@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500">
+  <!-- Neutral abstract portrait placeholder. Replace with an approved photograph. -->
+  <rect width="400" height="500" fill="#A88C75" fill-opacity="0.16"/>
+  <circle cx="200" cy="185" r="68" fill="#A88C75" fill-opacity="0.55"/>
+  <path d="M56 500 C56 372 130 304 200 304 C270 304 344 372 344 500 Z" fill="#A88C75" fill-opacity="0.55"/>
+  <rect x="0" y="470" width="400" height="30" fill="#30272A" fill-opacity="0.12"/>
+</svg>

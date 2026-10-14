@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 480" width="560" height="480">
+  <!-- Original abstract geometric detail (decorative). -->
+  <rect width="560" height="480" fill="#A88C75" fill-opacity="0.14"/>
+  <rect x="50" y="50" width="300" height="300" fill="none" stroke="#A88C75" stroke-width="1.5"/>
+  <rect x="130" y="130" width="300" height="300" fill="#A88C75" fill-opacity="0.32"/>
+  <path d="M130 430 V280 A150 150 0 0 1 280 130" fill="none" stroke="#30272A" stroke-width="1.5"/>
+  <path d="M130 430 V340 A90 90 0 0 1 220 250" fill="none" stroke="#30272A" stroke-width="1.5"/>
+  <rect x="350" y="250" width="130" height="180" fill="#30272A"/>
+  <g stroke="#F7F3EF" stroke-opacity="0.2" stroke-width="1.5">
+    <line x1="380" y1="270" x2="380" y2="430"/>
+    <line x1="415" y1="270" x2="415" y2="430"/>
+    <line x1="450" y1="270" x2="450" y2="430"/>
+  </g>
+  <line x1="30" y1="430" x2="530" y2="430" stroke="#30272A" stroke-width="2"/>
+  <circle cx="440" cy="110" r="34" fill="none" stroke="#A88C75" stroke-width="1.5"/>
+</svg>
