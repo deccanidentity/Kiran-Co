@@ -25,7 +25,7 @@ Kiran-Co/
 ├── about.html          # About: Firm Foundation, Professional Philosophy, ICAI Core Values, 4-Stage Methodology
 ├── services.html       # Services: Statutory Accounting, Direct Tax, GST, Corporate Compliance, Advisory, Due Dates Tracker
 ├── industries.html     # Industries: Manufacturing, Tech/SaaS, Real Estate, Healthcare, Retail/E-Commerce, Startups
-├── team.html           # Leadership: CA Kiran Kumar (FCA), CA Priya Sharma (FCA), CA Rajesh Mehta (ACA), Quality Standards
+├── team.html           # Leadership: CA Kiran Kumar (FCA), Raviteja Gunji (FCA), CA Kishan (ACA), Quality Standards
 ├── contact.html        # Client Engagement Portal: Offline-ready inquiry generator, direct mailto, office addresses, direct lines
 ├── privacy.html        # Privacy Policy: DPDP Act 2023 & Information Technology Act 2000 compliant
 ├── terms.html          # Terms of Service: ICAI non-solicitation notice, professional engagement protocols

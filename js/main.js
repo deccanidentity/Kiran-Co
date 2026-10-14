@@ -333,11 +333,12 @@
     if (!document.querySelector('.floating-whatsapp')) {
       var waBtn = document.createElement('a');
       waBtn.className = 'floating-whatsapp';
-      waBtn.href = 'https://wa.me/918041238900?text=Hello%20Kiran%20%26%20Co%2C%20I%20would%20like%20to%20enquire%20about%20your%20CA%20services.';
+      waBtn.href = 'https://wa.me/919848849367?text=Hello%20Kiran%20%26%20Co%2C%20I%20would%20like%20to%20enquire%20about%20your%20CA%20services.';
       waBtn.target = '_blank';
       waBtn.rel = 'noopener noreferrer';
       waBtn.setAttribute('aria-label', 'Contact Kiran & Co on WhatsApp');
       waBtn.innerHTML =
+        '<span class="widget-dialogue-popup widget-dialogue-popup--left">WhatsApp</span>' +
         '<svg viewBox="0 0 24 24" aria-hidden="true">' +
           '<path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24zm4.52 11.66c-.19.53-1.09 1.04-1.52 1.09-.43.05-.98.07-1.59-.12-.37-.12-.85-.28-1.47-.55-2.58-1.12-4.26-3.72-4.39-3.89-.13-.17-1.05-1.4-1.05-2.67 0-1.27.66-1.89.9-2.14.23-.25.51-.31.68-.31.17 0 .34 0 .49.01.16.01.37-.06.58.44.21.51.73 1.77.79 1.9.06.13.1.28.02.44-.08.17-.13.27-.25.41-.13.14-.27.31-.38.42-.13.13-.26.27-.11.53.15.25.66 1.09 1.42 1.77.98.87 1.8 1.14 2.06 1.27.25.13.4.11.55-.06.15-.17.64-.75.81-1 .17-.26.34-.21.57-.13.23.08 1.48.7 1.73.83.25.12.42.19.48.29.07.1.07.61-.12 1.14z"/>' +
         '</svg>';
@@ -350,17 +351,23 @@
       aiBtn.className = 'floating-ai-btn';
       aiBtn.id = 'ai-chat-btn';
       aiBtn.setAttribute('type', 'button');
-      aiBtn.setAttribute('aria-label', 'Open AI Assistant Demo');
+      aiBtn.setAttribute('aria-label', 'Ask AI Assistant');
       aiBtn.innerHTML =
         '<span class="ai-status-dot" aria-hidden="true"></span>' +
-        '<svg viewBox="0 0 24 24" aria-hidden="true">' +
-          '<path d="M12 2v2M4.93 4.93l1.41 1.41M19.07 4.93l-1.41 1.41"/>' +
-          '<rect x="4" y="8" width="16" height="12" rx="4"/>' +
-          '<circle cx="9" cy="13" r="1.5" fill="currentColor"/>' +
-          '<circle cx="15" cy="13" r="1.5" fill="currentColor"/>' +
-          '<path d="M9.5 17h5"/>' +
-          '<line x1="2" y1="14" x2="4" y2="14"/>' +
-          '<line x1="20" y1="14" x2="22" y2="14"/>' +
+        '<span class="widget-dialogue-popup widget-dialogue-popup--right">Ask AI</span>' +
+        '<svg class="robot-icon" viewBox="0 0 32 32" aria-hidden="true">' +
+          '<path class="robot-signal-ripple" d="M11 3.5a7 7 0 0 1 10 0" stroke="#FBBF24" stroke-width="1.2" stroke-linecap="round" fill="none"/>' +
+          '<path class="robot-antenna-stem" d="M16 4.5v3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>' +
+          '<circle class="robot-antenna-glow" cx="16" cy="4" r="2.2" fill="#FBBF24"/>' +
+          '<rect class="robot-head" x="5" y="8" width="22" height="18" rx="6" fill="rgba(255,255,255,0.06)" stroke="currentColor" stroke-width="1.8"/>' +
+          '<rect x="2.5" y="14" width="2.5" height="6" rx="1.2" fill="var(--gold)"/>' +
+          '<rect x="27" y="14" width="2.5" height="6" rx="1.2" fill="var(--gold)"/>' +
+          '<rect class="robot-screen" x="8" y="11" width="16" height="8" rx="3.5" fill="#040D1A" stroke="rgba(197,160,89,0.4)" stroke-width="1"/>' +
+          '<g class="robot-eyes-track">' +
+            '<circle class="robot-eye robot-eye--left" cx="12.5" cy="15" r="2" fill="#38BDF8"/>' +
+            '<circle class="robot-eye robot-eye--right" cx="19.5" cy="15" r="2" fill="#38BDF8"/>' +
+          '</g>' +
+          '<path class="robot-mouth" d="M12.5 22.5c1 1.2 6 1.2 7 0" stroke="var(--gold-light)" stroke-width="1.6" stroke-linecap="round" fill="none"/>' +
         '</svg>';
       document.body.appendChild(aiBtn);
     }
@@ -376,8 +383,16 @@
         '<div class="ai-chat-header">' +
           '<div class="ai-chat-header-info">' +
             '<div class="ai-chat-header-avatar">' +
-              '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">' +
-                '<rect x="4" y="8" width="16" height="12" rx="3"/><circle cx="9" cy="13" r="1.2" fill="currentColor"/><circle cx="15" cy="13" r="1.2" fill="currentColor"/><path d="M10 17h4"/><line x1="12" y1="4" x2="12" y2="8"/>' +
+              '<svg class="robot-icon" viewBox="0 0 32 32" aria-hidden="true" width="24" height="24">' +
+                '<path class="robot-antenna-stem" d="M16 5v3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>' +
+                '<circle class="robot-antenna-glow" cx="16" cy="4" r="2" fill="#FBBF24"/>' +
+                '<rect class="robot-head" x="5" y="8" width="22" height="18" rx="6" fill="rgba(255,255,255,0.06)" stroke="currentColor" stroke-width="1.8"/>' +
+                '<rect class="robot-screen" x="8" y="11" width="16" height="8" rx="3.5" fill="#040D1A"/>' +
+                '<g class="robot-eyes-track">' +
+                  '<circle class="robot-eye robot-eye--left" cx="12.5" cy="15" r="2" fill="#38BDF8"/>' +
+                  '<circle class="robot-eye robot-eye--right" cx="19.5" cy="15" r="2" fill="#38BDF8"/>' +
+                '</g>' +
+                '<path class="robot-mouth" d="M12.5 22.5c1 1.2 6 1.2 7 0" stroke="var(--gold-light)" stroke-width="1.6" stroke-linecap="round" fill="none"/>' +
               '</svg>' +
             '</div>' +
             '<div>' +
@@ -489,14 +504,14 @@
         }
 
         if (q.indexOf('consult') !== -1 || q.indexOf('book') !== -1 || q.indexOf('contact') !== -1 || q.indexOf('fee') !== -1 || q.indexOf('call') !== -1) {
-          return 'You can schedule an introductory conference with our partners directly:<br>• <strong>Telephone:</strong> <a href="tel:+918041238900" style="color:var(--navy);font-weight:600;">+91 (080) 4123 8900</a><br>• <strong>WhatsApp:</strong> <a href="https://wa.me/918041238900" target="_blank" style="color:#059669;font-weight:600;">Chat on WhatsApp →</a><br>• <strong>Portal:</strong> <a href="contact.html" style="color:var(--navy);font-weight:600;text-decoration:underline;">Submit Consultation Form →</a>';
+          return 'You can schedule an introductory conference with our partners directly:<br>• <strong>Telephone:</strong> <a href="tel:+919848849367" style="color:var(--navy);font-weight:600;">+91 98488 49367</a><br>• <strong>WhatsApp:</strong> <a href="https://wa.me/919848849367" target="_blank" style="color:#059669;font-weight:600;">Chat on WhatsApp →</a><br>• <strong>Portal:</strong> <a href="contact.html" style="color:var(--navy);font-weight:600;text-decoration:underline;">Submit Consultation Form →</a>';
         }
 
         if (q.indexOf('cfo') !== -1 || q.indexOf('bookkeep') !== -1 || q.indexOf('mis') !== -1) {
           return 'Our <strong>Virtual CFO &amp; Management Accounting</strong> service provides growing enterprises with outsourced financial controllership: monthly MIS reporting, cashflow forecasting, Tally/Zoho/NetSuite ledger closing, and board presentations.<br><br><a href="services.html#advisory" style="color:var(--navy);font-weight:600;text-decoration:underline;">Learn About Virtual CFO →</a>';
         }
 
-        return 'Thank you for your enquiry regarding ' + escapeHtml(query) + '. Kiran &amp; Co provides partner-led advisory across Indian statutory audit, corporate tax, GST, and MCA filings. Would you like to connect with a partner on WhatsApp or submit a consultation brief?<br><br><div style="display:flex;gap:0.5rem;margin-top:0.4rem;"><a href="https://wa.me/918041238900" target="_blank" class="btn btn--secondary" style="padding:0.35rem 0.75rem;font-size:0.8rem;">WhatsApp Us</a><a href="contact.html" class="btn btn--primary" style="padding:0.35rem 0.75rem;font-size:0.8rem;">Book Consultation</a></div>';
+        return 'Thank you for your enquiry regarding ' + escapeHtml(query) + '. Kiran &amp; Co provides partner-led advisory across Indian statutory audit, corporate tax, GST, and MCA filings. Would you like to connect with a partner on WhatsApp or submit a consultation brief?<br><br><div style="display:flex;gap:0.5rem;margin-top:0.4rem;"><a href="https://wa.me/919848849367" target="_blank" class="btn btn--secondary" style="padding:0.35rem 0.75rem;font-size:0.8rem;">WhatsApp Us</a><a href="contact.html" class="btn btn--primary" style="padding:0.35rem 0.75rem;font-size:0.8rem;">Book Consultation</a></div>';
       }
     }
   }
