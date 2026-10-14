@@ -14,6 +14,7 @@
     initAccordions();
     initServiceChips();
     initContactForm();
+    initFloatingWidgets();
   });
 
   /* 1. Dynamic Footer Year -------------------------------------------------- */
@@ -324,6 +325,180 @@
 
       form.reset();
     });
+  }
+
+  /* 8. Floating WhatsApp & AI Assistant Widgets --------------------------- */
+  function initFloatingWidgets() {
+    // 1. WhatsApp Button (Bottom Left)
+    if (!document.querySelector('.floating-whatsapp')) {
+      var waBtn = document.createElement('a');
+      waBtn.className = 'floating-whatsapp';
+      waBtn.href = 'https://wa.me/918041238900?text=Hello%20Kiran%20%26%20Co%2C%20I%20would%20like%20to%20enquire%20about%20your%20CA%20services.';
+      waBtn.target = '_blank';
+      waBtn.rel = 'noopener noreferrer';
+      waBtn.setAttribute('aria-label', 'Contact Kiran & Co on WhatsApp');
+      waBtn.innerHTML =
+        '<svg viewBox="0 0 24 24" aria-hidden="true">' +
+          '<path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24zm4.52 11.66c-.19.53-1.09 1.04-1.52 1.09-.43.05-.98.07-1.59-.12-.37-.12-.85-.28-1.47-.55-2.58-1.12-4.26-3.72-4.39-3.89-.13-.17-1.05-1.4-1.05-2.67 0-1.27.66-1.89.9-2.14.23-.25.51-.31.68-.31.17 0 .34 0 .49.01.16.01.37-.06.58.44.21.51.73 1.77.79 1.9.06.13.1.28.02.44-.08.17-.13.27-.25.41-.13.14-.27.31-.38.42-.13.13-.26.27-.11.53.15.25.66 1.09 1.42 1.77.98.87 1.8 1.14 2.06 1.27.25.13.4.11.55-.06.15-.17.64-.75.81-1 .17-.26.34-.21.57-.13.23.08 1.48.7 1.73.83.25.12.42.19.48.29.07.1.07.61-.12 1.14z"/>' +
+        '</svg>';
+      document.body.appendChild(waBtn);
+    }
+
+    // 2. AI Robot Button (Bottom Right)
+    if (!document.querySelector('.floating-ai-btn')) {
+      var aiBtn = document.createElement('button');
+      aiBtn.className = 'floating-ai-btn';
+      aiBtn.id = 'ai-chat-btn';
+      aiBtn.setAttribute('type', 'button');
+      aiBtn.setAttribute('aria-label', 'Open AI Assistant Demo');
+      aiBtn.innerHTML =
+        '<span class="ai-status-dot" aria-hidden="true"></span>' +
+        '<svg viewBox="0 0 24 24" aria-hidden="true">' +
+          '<path d="M12 2v2M4.93 4.93l1.41 1.41M19.07 4.93l-1.41 1.41"/>' +
+          '<rect x="4" y="8" width="16" height="12" rx="4"/>' +
+          '<circle cx="9" cy="13" r="1.5" fill="currentColor"/>' +
+          '<circle cx="15" cy="13" r="1.5" fill="currentColor"/>' +
+          '<path d="M9.5 17h5"/>' +
+          '<line x1="2" y1="14" x2="4" y2="14"/>' +
+          '<line x1="20" y1="14" x2="22" y2="14"/>' +
+        '</svg>';
+      document.body.appendChild(aiBtn);
+    }
+
+    // 3. AI Chat Drawer Modal
+    if (!document.querySelector('.ai-chat-drawer')) {
+      var drawer = document.createElement('div');
+      drawer.className = 'ai-chat-drawer';
+      drawer.id = 'ai-chat-drawer';
+      drawer.setAttribute('role', 'dialog');
+      drawer.setAttribute('aria-labelledby', 'ai-chat-title');
+      drawer.innerHTML =
+        '<div class="ai-chat-header">' +
+          '<div class="ai-chat-header-info">' +
+            '<div class="ai-chat-header-avatar">' +
+              '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">' +
+                '<rect x="4" y="8" width="16" height="12" rx="3"/><circle cx="9" cy="13" r="1.2" fill="currentColor"/><circle cx="15" cy="13" r="1.2" fill="currentColor"/><path d="M10 17h4"/><line x1="12" y1="4" x2="12" y2="8"/>' +
+              '</svg>' +
+            '</div>' +
+            '<div>' +
+              '<div class="ai-chat-header-title" id="ai-chat-title">Kiran CA Assistant</div>' +
+              '<div class="ai-chat-header-sub"><span style="width:7px;height:7px;border-radius:50%;background:#34D399;display:inline-block;"></span> Online · Indian CA Advisory</div>' +
+            '</div>' +
+          '</div>' +
+          '<button class="ai-chat-close" id="ai-chat-close" aria-label="Close Assistant">' +
+            '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>' +
+          '</button>' +
+        '</div>' +
+        '<div class="ai-chat-body" id="ai-chat-body">' +
+          '<div class="ai-bubble ai-bubble--bot">' +
+            'Namaste! I am the <strong>Kiran &amp; Co AI Assistant</strong>. Ask me anything regarding Indian statutory audits, direct tax u/s 44AB, GST returns, or MCA ROC compliances.' +
+          '</div>' +
+          '<div class="ai-chips-container">' +
+            '<button type="button" class="ai-chip" data-q="What are key GST due dates?">📅 GST Due Dates</button>' +
+            '<button type="button" class="ai-chip" data-q="Who requires a Tax Audit u/s 44AB?">📑 44AB Tax Audit</button>' +
+            '<button type="button" class="ai-chip" data-q="What are the steps to incorporate a Pvt Ltd company?">🏢 Pvt Ltd Setup</button>' +
+            '<button type="button" class="ai-chip" data-q="How can I book a partner consultation?">📞 Book Consultation</button>' +
+          '</div>' +
+        '</div>' +
+        '<form class="ai-chat-footer" id="ai-chat-form">' +
+          '<input type="text" class="ai-chat-input" id="ai-chat-input" placeholder="Ask about GST, tax, audit, ROC..." autocomplete="off">' +
+          '<button type="submit" class="ai-chat-send" aria-label="Send query">' +
+            '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>' +
+          '</button>' +
+        '</form>';
+      document.body.appendChild(drawer);
+
+      var openBtn = document.getElementById('ai-chat-btn');
+      var closeBtn = document.getElementById('ai-chat-close');
+      var chatBody = document.getElementById('ai-chat-body');
+      var chatForm = document.getElementById('ai-chat-form');
+      var chatInput = document.getElementById('ai-chat-input');
+
+      function toggleChat(isOpen) {
+        drawer.classList.toggle('is-open', isOpen);
+        if (isOpen && chatInput) chatInput.focus();
+      }
+
+      openBtn.addEventListener('click', function () {
+        toggleChat(!drawer.classList.contains('is-open'));
+      });
+
+      closeBtn.addEventListener('click', function () {
+        toggleChat(false);
+      });
+
+      // Quick chips click
+      drawer.addEventListener('click', function (e) {
+        var chip = e.target.closest('.ai-chip');
+        if (chip) {
+          var query = chip.getAttribute('data-q');
+          handleUserQuery(query);
+        }
+      });
+
+      chatForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var val = chatInput.value.trim();
+        if (!val) return;
+        chatInput.value = '';
+        handleUserQuery(val);
+      });
+
+      function handleUserQuery(query) {
+        appendMessage(query, 'user');
+
+        // Show typing indicator
+        var typingId = 'typing-' + Date.now();
+        var typingEl = document.createElement('div');
+        typingEl.className = 'ai-bubble ai-bubble--bot';
+        typingEl.id = typingId;
+        typingEl.textContent = 'Analyzing statutory guidelines...';
+        chatBody.appendChild(typingEl);
+        chatBody.scrollTop = chatBody.scrollHeight;
+
+        setTimeout(function () {
+          var existingTyping = document.getElementById(typingId);
+          if (existingTyping) existingTyping.remove();
+
+          var botReply = generateBotResponse(query);
+          appendMessage(botReply, 'bot');
+        }, 600);
+      }
+
+      function appendMessage(text, sender) {
+        var bubble = document.createElement('div');
+        bubble.className = 'ai-bubble ' + (sender === 'user' ? 'ai-bubble--user' : 'ai-bubble--bot');
+        bubble.innerHTML = text;
+        chatBody.appendChild(bubble);
+        chatBody.scrollTop = chatBody.scrollHeight;
+      }
+
+      function generateBotResponse(query) {
+        var q = query.toLowerCase();
+
+        if (q.indexOf('gst') !== -1 || q.indexOf('gstr') !== -1) {
+          return 'Under Indian GST laws: Monthly <strong>GSTR-1</strong> is due by the 11th, and <strong>GSTR-3B</strong> summary return is due by the 20th of each month. Annual <strong>GSTR-9/9C</strong> reconciliation is due by Dec 31st. We also automate <strong>GSTR-2B Input Tax Credit</strong> matching. <br><br><a href="services.html#gst" style="color:var(--navy);font-weight:600;text-decoration:underline;">Explore our GST Practice →</a>';
+        }
+
+        if (q.indexOf('44ab') !== -1 || q.indexOf('tax audit') !== -1 || q.indexOf('audit limit') !== -1) {
+          return 'Under <strong>Section 44AB of the Income Tax Act</strong>:<br>• Businesses require a Tax Audit if turnover exceeds ₹1 Crore (threshold increases to ₹10 Crore if 95%+ transactions are digital).<br>• Professionals require a Tax Audit if gross receipts exceed ₹50 Lakhs (or ₹75 Lakhs under 44ADA).<br>Reports must be furnished via Form 3CA/3CD before Sept 30th.<br><br><a href="services.html#tax" style="color:var(--navy);font-weight:600;text-decoration:underline;">View Tax Audit Services →</a>';
+        }
+
+        if (q.indexOf('pvt ltd') !== -1 || q.indexOf('incorporat') !== -1 || q.indexOf('roc') !== -1 || q.indexOf('company') !== -1) {
+          return 'To incorporate a Private Limited company in India:<br>1. Digital Signature Certificates (DSC) &amp; Name reservation on MCA SPICe+ (Part A).<br>2. SPICe+ Part B drafting with MOA, AOA, AGILE-PRO-S (GST/EPFO/ESIC), and PAN/TAN generation.<br>3. Bank account opening &amp; Form INC-20A Commencement of Business within 180 days.<br><br><a href="contact.html?service=Compliance" style="color:var(--navy);font-weight:600;text-decoration:underline;">Initiate Incorporation Brief →</a>';
+        }
+
+        if (q.indexOf('consult') !== -1 || q.indexOf('book') !== -1 || q.indexOf('contact') !== -1 || q.indexOf('fee') !== -1 || q.indexOf('call') !== -1) {
+          return 'You can schedule an introductory conference with our partners directly:<br>• <strong>Telephone:</strong> <a href="tel:+918041238900" style="color:var(--navy);font-weight:600;">+91 (080) 4123 8900</a><br>• <strong>WhatsApp:</strong> <a href="https://wa.me/918041238900" target="_blank" style="color:#059669;font-weight:600;">Chat on WhatsApp →</a><br>• <strong>Portal:</strong> <a href="contact.html" style="color:var(--navy);font-weight:600;text-decoration:underline;">Submit Consultation Form →</a>';
+        }
+
+        if (q.indexOf('cfo') !== -1 || q.indexOf('bookkeep') !== -1 || q.indexOf('mis') !== -1) {
+          return 'Our <strong>Virtual CFO &amp; Management Accounting</strong> service provides growing enterprises with outsourced financial controllership: monthly MIS reporting, cashflow forecasting, Tally/Zoho/NetSuite ledger closing, and board presentations.<br><br><a href="services.html#advisory" style="color:var(--navy);font-weight:600;text-decoration:underline;">Learn About Virtual CFO →</a>';
+        }
+
+        return 'Thank you for your enquiry regarding ' + escapeHtml(query) + '. Kiran &amp; Co provides partner-led advisory across Indian statutory audit, corporate tax, GST, and MCA filings. Would you like to connect with a partner on WhatsApp or submit a consultation brief?<br><br><div style="display:flex;gap:0.5rem;margin-top:0.4rem;"><a href="https://wa.me/918041238900" target="_blank" class="btn btn--secondary" style="padding:0.35rem 0.75rem;font-size:0.8rem;">WhatsApp Us</a><a href="contact.html" class="btn btn--primary" style="padding:0.35rem 0.75rem;font-size:0.8rem;">Book Consultation</a></div>';
+      }
+    }
   }
 
   function escapeHtml(str) {
